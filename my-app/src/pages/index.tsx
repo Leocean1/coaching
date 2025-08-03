@@ -15,6 +15,9 @@ export default function HomePage() {
         <Link href="/teacher">
           <button className="px-6 py-3 bg-purple-600 text-white rounded-xl shadow">Teacher Panel</button>
         </Link>
+        <Link href="/login">
+          <button className="px-6 py-3 bg-gray-700 text-white rounded-xl shadow">Login</button>
+        </Link>
       </div>
     </main>
   );
