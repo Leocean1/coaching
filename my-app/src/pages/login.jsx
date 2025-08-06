@@ -29,11 +29,19 @@ export default function LoginPage() {
 
     if (res.ok) {
       setMessage(data.message || 'Success!');
-      if (data.role === 'admin') router.push('/admin');
-      else if (data.role === 'teacher') router.push('/teacher');
-      else router.push('/student');
+      if (data.role === 'admin') {
+        router.push('/admin/home');
+      } else if (data.role === 'teacher') {
+        router.push('/teacher/home');
+      } else {
+        router.push('/student/home');
+      }
     } else {
-      setMessage(data.error || 'Something went wrong.');
+      if (data.error === 'Invalid credentials') {
+        setMessage('Invalid email or password. Please try again.');
+      } else {
+        setMessage(data.error || 'Something went wrong.');
+      }
     }
   };
 
